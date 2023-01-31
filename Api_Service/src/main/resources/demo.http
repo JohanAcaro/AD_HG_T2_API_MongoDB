@@ -1,0 +1,18 @@
+POST localhost:8080/insert
+content-type: application/json
+
+{
+  "client": {
+    "nombre": "Vicot Sanchez",
+    "apellidos": "Grande",
+    "tlf": "666666666",
+    "modeloTlf": "Samsung Galaxy S10"
+  },
+  "fecha": "2019-12-12",
+  "motivo": "Cambio de pantalla",
+  "tipoIncidencia": "HARDWARE",
+  "tipoReparacion": "FISICA",
+  "solucionado": true
+}
+
+###
