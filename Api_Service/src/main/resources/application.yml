@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      port: 27017
+      username: root
+      password: root
+      authentication-database: admin
+      database: hitogrupal
+      host: localhost
