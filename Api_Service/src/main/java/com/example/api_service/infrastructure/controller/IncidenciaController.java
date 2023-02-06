@@ -52,6 +52,14 @@ public class IncidenciaController {
         );
     }
 
+    @GetMapping("/list-llamadas/{fecha}")
+    public ResponseEntity<String> listByDate(@PathVariable("fecha") String fecha){
+        List<Incidencia> incidenciaList = incidenciaRepository.findByFecha(fecha);
+        return ResponseEntity.ok(
+                "Lista de llamadas en "+fecha+" :\n"+ incidenciaList
+        );
+    }
+
     // Info para técnicos de atención al cliente
     @GetMapping("/info-cliente/{idLlamada}")
     public ResponseEntity<String> infoCliente(@PathVariable("idLlamada") String idLlamada) {

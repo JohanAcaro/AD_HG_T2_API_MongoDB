@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface IncidenciaRepository extends MongoRepository<Incidencia, String> {
     List<Incidencia> findByClient(Client client);
+    List<Incidencia> findByFecha(String fecha);
 }
