@@ -75,4 +75,30 @@ public class IncidenciaController {
         }
     }
 
+    // Método Update incidencia
+    @PutMapping("/update/{idLlamada}")
+    public ResponseEntity<String> updateIncidencia(@PathVariable("idLlamada") String idLlamada, @RequestBody IncidenciaDto incidenciaDto) {
+        if (incidenciaRepository.existsById(idLlamada)) {
+            var incidencia = IncidenciaConverter
+                    .convertFrom(incidenciaDto)
+                    .build();
+            incidencia.setId(idLlamada);
+            var rs = incidenciaRepository.save(incidencia);
+            return ResponseEntity.ok("Incidencia actualizada con id: " + rs.getId());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    // Método Delete incidencia
+    @DeleteMapping("/delete/{idLlamada}")
+    public ResponseEntity<String> deleteIncidencia(@PathVariable("idLlamada") String idLlamada) {
+        if (incidenciaRepository.existsById(idLlamada)) {
+            incidenciaRepository.deleteById(idLlamada);
+            return ResponseEntity.ok("Incidencia eliminada con id: " + idLlamada);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
